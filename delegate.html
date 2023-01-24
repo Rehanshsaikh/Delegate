@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="delegate.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title></title>
+</head>
+
+<body>
+  <div class="reqform">
+    <h1>
+      Delegate Registration
+    </h1>
+  </div>
+  <div class="mane">
+    <div id="name">
+      <form>
+        <label for="Delegates">How Many Delegates to Register</label><br>
+        <select name="delegate" id="delegate" class="Dropdown" onchange="repeat()">
+          <option value="0">Please Select ..</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+
+        <div id="Repeat"></div>
+        
+        <input class="btn" type="button" id="GrandTotal" value="Show Grand Total" onclick="displaytotal()" style="display: none;">
+        <div id="Container" style="display: none;">
+          <h2>PURCHASE SUMMARY</h2>
+          <table>
+            <tr>
+              <td>
+                Total :
+              </td>
+              <td>
+                (USD)
+              </td>
+              <td id="total">
+
+              </td>
+            </tr>
+          </table>
+        </div>
+        <input class="btn" id="next" type="button" value="Next" onclick="buttondelchange()">
+        <div id="Container1" style="display: none;">
+          <div class="maindiv">
+
+            <h1>
+              Company Information :
+            </h1>
+            <div class="fields">
+
+              <div class="input-field">
+                <label> Company Name :</label>
+                <input class="textinput" type="text" id="company" name="fname">
+              </div>
+
+              <div class="input-field">
+                <label> Street :</label>
+                <input type="text" id="comstr" name="fname">
+              </div>
+
+              <div class="input-field">
+                <label> Town/City :</label>
+                <input type="text" id="town" name="town">
+              </div>
+
+              <div class="input-field">
+                <label> Country :</label>
+                <input type="text" id="country" name="country">
+              </div>
+
+              <div class="input-field">
+                <label> Zipcode :</label>
+                <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$">
+              </div>
+
+              <div class="input-field">
+                <label> State :</label>
+                <input type="text" id="state" name="state">
+              </div>
+            </div>
+          </div>
+
+
+          <h1>
+            Billing Contact Info :
+          </h1>
+
+          <div class="fields">
+            <div class="input-field">
+              <label class="DSalutation" for="Salutations">Salutation</label>
+              <select name="salute" id="salute">
+                <option value="select">Please Select...</option>
+                <option value="Mr">Mr</option>
+                <option value="Dr">Dr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Er">Er</option>
+              </select>
+            </div>
+
+            <div class="input-field">
+              <label for="Cfname">First name:</label>
+              <input type="text" id="Cfname" name="Cfname" placeholder="First Name" required>
+            </div>
+
+            <div class="input-field">
+              <label for="clname">Last name:</label>
+              <input type="text" id="clname" name="clname" placeholder="Last Name" required>
+            </div>
+
+            <div class="input-field">
+              <label for="cemail">Email:</label>
+              <input type="email" id="cemail" name="cemail" placeholder="Enter Email" required>
+            </div>
+
+            <div class="input-field">
+              <label for="ctelephone">Telephone:</label>
+              <input type="phone" id="ctelephone" name="ctelephone" placeholder="Enter Telephone number" required>
+            </div>
+
+            <div class="input-field"></div>
+
+          </div>
+          
+          <div>
+            <label for="vat">VAT Registered</label><br>
+            <input type="radio" id="vatyes" name="vat" value="Yes" onclick="radiochange()">
+            <label for="vatyes">Yes</label>
+            <input type="radio" id="vatno" name="vat" value="No" onclick="radiochangeno()">
+            <label for="vatyes">No</label>
+
+            <div id="Container3" style="display: none;">
+
+              <div class="input-field">
+                <input type="text" id="vatnum" name="vatnum" placeholder="Vat Number">
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <input class="btn" type="submit" id="submit" name="submit" value="Submit" style="display: none;">
+      </form>
+    </div>
+  </div>
+  <script src="delegate.js"></script>
+</body>
+
+</html>
