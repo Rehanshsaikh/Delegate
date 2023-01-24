@@ -65,7 +65,7 @@ function repeat(){
 
                 <div class="input-field">
                     <label class="DSalutation" for="Salutations${i}">Salutation</label>
-                    <select name="salute${i}" id="salute${i}">
+                    <select class="loop${i}" name="salute${i}" id="salute${i}">
                         <option value="select">Please Select...</option>
                         <option value="Mr">Mr</option>
                         <option value="Dr">Dr</option>
@@ -76,32 +76,32 @@ function repeat(){
 
                 <div class="input-field">
                         <label for="dfname${i}">Delegate First name:</label>
-                        <input type="text" id="dfname${i}" name="dfname${i}" placeholder="Delegate First Name" required>
+                        <input class="loop${i}" type="text" id="dfname${i}" name="dfname${i}" placeholder="Delegate First Name" required>
                 </div>
 
                 <div class="input-field">
                     <label for="dlname${i}">Delegate Last name:</label>
-                    <input type="text" id="dlname${i}" name="dlname${i}" placeholder="Delegate Last Name" required>
+                    <input class="loop${i}" type="text" id="dlname${i}" name="dlname${i}" placeholder="Delegate Last Name" required>
                 </div>
 
                 <div class="input-field">
                     <label for="demail${i}">Delegate Email:</label>
-                    <input type="email" id="demail${i}" name="demail${i}" placeholder="Enter Email" required>
+                    <input class="loop${i}" type="email" id="demail${i}" name="demail${i}" placeholder="Enter Email" required>
                 </div>
 
                 <div class="input-field">
                     <label for="dtelephone${i}">Delegate Telephone:</label>
-                    <input type="Number" id="dtelephone${i}" name="dtelephone${i}" placeholder="Enter Telephone number" required>
+                    <input class="loop${i}" type="Number" id="dtelephone${i}" name="dtelephone${i}" placeholder="Enter Telephone number" required>
                 </div>
 
                 <div class="input-field">
                     <label for="djob${i}">Delegate Job Title:</label>
-                    <input type="text" id="djob${i}" name="djob${i}" placeholder="Enter Job Title" required>
+                    <input class="loop${i}" type="text" id="djob${i}" name="djob${i}" placeholder="Enter Job Title" required>
                 </div>
 
                 <div class="input-field">
                     <label for="dpass${i}">Delegate Passport Number :</label>
-                    <input type="text" id="dpass${i}" name="dpass${i}" placeholder="Enter your Passport Number" required>
+                    <input class="loop${i}" type="text" id="dpass${i}" name="dpass${i}" placeholder="Enter your Passport Number" required>
                 </div>
             </div>
 
@@ -111,7 +111,7 @@ function repeat(){
 
                     <tr>
                         <td style="width:2%">
-                            <input type="checkbox" id="myCheck1-${i}" value="5900" onchange="myFunction(this.id)">
+                            <input class="check${i}" type="checkbox" id="myCheck1-${i}" value="5900" onchange="myFunction(this.id)">
                         </td>
                         <td style="width:70%">
                             All Access (Delegate)
@@ -123,7 +123,7 @@ function repeat(){
 
                     <tr>
                         <td>
-                            <input type="checkbox" id="myCheck2-${i}" value="5100" onchange="myFunction(this.id)">
+                            <input class="check${i}" type="checkbox" id="myCheck2-${i}" value="5100" onchange="myFunction(this.id)">
                         </td>
                         <td>
                             Strategic Conference (Delegate)
@@ -135,7 +135,7 @@ function repeat(){
 
                     <tr>
                         <td>
-                            <input type="checkbox" id="myCheck3-${i}" value="1858" onchange="myFunction(this.id)">
+                            <input class="check${i}" type="checkbox" id="myCheck3-${i}" value="1858" onchange="myFunction(this.id)">
                         </td>
                         <td>
                             Technical Conference Pass - 4 days (Delegate)
@@ -147,7 +147,7 @@ function repeat(){
 
                     <tr>
                         <td>
-                            <input type="checkbox" id="myCheck4-${i}" value="1485" onchange="myFunction(this.id)">
+                            <input class="check${i}" type="checkbox" id="myCheck4-${i}" value="1485" onchange="myFunction(this.id)">
                         </td>
                         <td>
                             Technical Conference Pass - 2 days (Delegate)
@@ -159,7 +159,7 @@ function repeat(){
 
                     <tr>
                         <td>
-                            <input type="checkbox" id="myCheck5-${i}" value="1100" onchange="myFunction(this.id)">
+                            <input class="check${i}" type="checkbox" id="myCheck5-${i}" value="1100" onchange="myFunction(this.id)">
                         </td>
                         <td>
                             Downstream Technical Conference Pass (Delegate)
@@ -171,4 +171,59 @@ function repeat(){
                 </table>
             </dive>`
         }
+}
+
+function add(){
+    let comp = Array.from(document.querySelectorAll(".company"))
+    document.getElementById("display").style.display = "block"
+    document.getElementById("add").innerHTML += `
+                                                <tr>
+                                                    <td>${comp[0].value}</td>
+                                                    <td>${comp[1].value}</td>
+                                                    <td>${comp[2].value}</td>
+                                                    <td>${comp[3].value}</td>
+                                                    <td>${comp[4].value}</td>
+                                                    <td>${comp[5].value}</td>
+                                                </tr>`
+
+    let billing = Array.from(document.querySelectorAll(".billing"))
+    document.getElementById("add1").innerHTML += `<tr>
+                                                    <td>${billing[0].value}</td>
+                                                    <td>${billing[1].value}</td>
+                                                    <td>${billing[2].value}</td>
+                                                    <td>${billing[3].value}</td>
+                                                    <td>${billing[4].value}</td>
+                                                </tr>`
+    let loop = document.getElementById("delegate").value 
+    let total = 0
+    for(let i = 1; i<=loop; i++){                                           
+        let del = Array.from(document.getElementsByClassName("loop"+i))
+        document.getElementById("add2").innerHTML += `<tr>
+                                                        <td>${i}</td>
+                                                        <td>${del[0].value}</td>
+                                                        <td>${del[1].value}</td>
+                                                        <td>${del[2].value}</td>
+                                                        <td>${del[3].value}</td>
+                                                        <td>${del[4].value}</td>
+                                                        <td>${del[5].value}</td>
+                                                        <td>${del[6].value}</td>
+                                                      </tr>` 
+        let product = Array.from(document.getElementsByClassName("check"+i))
+        for(let prod of product){
+            if(prod.checked == true){
+                document.getElementById("add3").innerHTML += `<tr>
+                                                                <td>${prod.parentElement.nextElementSibling.innerHTML}</td>
+                                                                <td>${prod.value}</td>
+                                                              </tr>`
+                                                              total += Number(prod.value)
+            }
+            
+        }
+         
+    }
+    document.getElementById("add3").innerHTML += `<tr>
+                                                    <td>Total</td>
+                                                    <td>${total}</td>
+                                                 </tr>`
+        
 }
