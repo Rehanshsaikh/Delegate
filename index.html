@@ -9,9 +9,19 @@
 
   <title></title>
 </head>
+<style>
+  #display td {
+    padding: 1%;
+    max-width: 1%;
+    width: 10%;
+    border: solid;
+  }
+  tr {
+    border: solid;
+  }
+</style>
 
 <body>
-  <h1 style="text-align: center;"> Rehan Shaikh</h1>
   <div class="reqform">
     <h1>
       Delegate Registration
@@ -19,7 +29,7 @@
   </div>
   <div class="mane">
     <div id="name">
-      <form>
+      <form id="reset">
         <label for="Delegates">How Many Delegates to Register</label><br>
         <select name="delegate" id="delegate" class="Dropdown" onchange="repeat()">
           <option value="0">Please Select ..</option>
@@ -59,32 +69,32 @@
 
               <div class="input-field">
                 <label> Company Name :</label>
-                <input class="textinput" type="text" id="company" name="fname">
+                <input class="company textinput" type="text" id="company" name="fname">
               </div>
 
               <div class="input-field">
                 <label> Street :</label>
-                <input type="text" id="comstr" name="fname">
+                <input class="company" type="text" id="comstr" name="fname">
               </div>
 
               <div class="input-field">
                 <label> Town/City :</label>
-                <input type="text" id="town" name="town">
+                <input class="company" type="text" id="town" name="town">
               </div>
 
               <div class="input-field">
                 <label> Country :</label>
-                <input type="text" id="country" name="country">
+                <input class="company" type="text" id="country" name="country">
               </div>
 
               <div class="input-field">
                 <label> Zipcode :</label>
-                <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$">
+                <input class="company" id="zip" name="zip" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$">
               </div>
 
               <div class="input-field">
                 <label> State :</label>
-                <input type="text" id="state" name="state">
+                <input class="company" type="text" id="state" name="state">
               </div>
             </div>
           </div>
@@ -97,7 +107,7 @@
           <div class="fields">
             <div class="input-field">
               <label class="DSalutation" for="Salutations">Salutation</label>
-              <select name="salute" id="salute">
+              <select class="billing" name="salute" id="salute">
                 <option value="select">Please Select...</option>
                 <option value="Mr">Mr</option>
                 <option value="Dr">Dr</option>
@@ -108,22 +118,22 @@
 
             <div class="input-field">
               <label for="Cfname">First name:</label>
-              <input type="text" id="Cfname" name="Cfname" placeholder="First Name" required>
+              <input class="billing" type="text" id="Cfname" name="Cfname" placeholder="First Name" required>
             </div>
 
             <div class="input-field">
               <label for="clname">Last name:</label>
-              <input type="text" id="clname" name="clname" placeholder="Last Name" required>
+              <input class="billing" type="text" id="clname" name="clname" placeholder="Last Name" required>
             </div>
 
             <div class="input-field">
               <label for="cemail">Email:</label>
-              <input type="email" id="cemail" name="cemail" placeholder="Enter Email" required>
+              <input class="billing" type="email" id="cemail" name="cemail" placeholder="Enter Email" required>
             </div>
 
             <div class="input-field">
               <label for="ctelephone">Telephone:</label>
-              <input type="phone" id="ctelephone" name="ctelephone" placeholder="Enter Telephone number" required>
+              <input class="billing" type="phone" id="ctelephone" name="ctelephone" placeholder="Enter Telephone number" required>
             </div>
 
             <div class="input-field"></div>
@@ -146,9 +156,57 @@
             </div>
           </div>
         </div>
-        <input class="btn" type="submit" id="submit" name="submit" value="Submit" style="display: none;">
+        <input onclick="add(event)" class="btn" type="submit" id="submit" name="submit" value="Submit" style="display: none;">
       </form>
     </div>
+  </div>
+
+  <div id="display" style="display: none;">
+    <h3>Company Information</h3>
+    <table id="add" >
+        <tr>
+          <td>Company Name</td>
+          <td>Street</td>
+          <td>Town/City</td>
+          <td>Country</td>
+          <td>Zipcode</td>
+          <td>State</td>
+        </tr>
+    </table>
+    <h3>Billing Contact Information</h3>
+    <table id="add1">
+        <tr>
+          <td>Salutation</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email</td>
+          <td>Telephone</td>
+       </tr>
+    </table>
+    <h3>Delegate Information</h3>
+    <table id="add2">
+        <tr>
+          <td>Delegate</td>
+          <td>Solutation</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email</td>
+          <td>Telephone</td>
+          <td>Job Title</td>
+          <td>Passport Number</td>
+        </tr>
+    </table>
+    <h3>Product and Fees</h3>
+    <table id="add3">
+      <tr>
+       <td>Product Name</td>
+       <td>Product Fees</td>
+      </tr>
+  </table>
+  <h3>VAT</h3>
+  <table id="add4" style="display: none;">
+    <tr><td>Vat Number</td> </tr>
+  </table>
   </div>
   <script src="delegate.js"></script>
 </body>
