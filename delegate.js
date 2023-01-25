@@ -173,7 +173,7 @@ function repeat(){
         }
 }
 
-function add(){
+function add(event){
     let comp = Array.from(document.querySelectorAll(".company"))
     document.getElementById("display").style.display = "block"
     document.getElementById("add").innerHTML += `
@@ -225,5 +225,11 @@ function add(){
                                                     <td>Total</td>
                                                     <td>${total}</td>
                                                  </tr>`
-        
+    if(document.getElementById("vatyes").checked == true){
+        let vat = document.getElementById("add4")
+        vat.style.display = "block"
+        vat.innerHTML += `<tr><td>${document.getElementById("vatnum").value}</td></tr>`
+    }
+    document.getElementById("reset").reset()
+    event.preventDefault()    
 }
